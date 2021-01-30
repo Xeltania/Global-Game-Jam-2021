@@ -23,15 +23,5 @@ public class hideObjects : MonoBehaviour
         }       
     }
 
-    private void OnTriggerEnter(Collider col)
-    {
-        if (!occupied)
-        {
-            if (col.gameObject.tag == "Sheep")
-            {
-                occupied = true;
-            }
-        }
-        
-    }
+    
 }

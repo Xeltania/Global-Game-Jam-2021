@@ -55,7 +55,7 @@ public class SheepMovement : MonoBehaviour
 
 
             //Wondering
-            if (!playerInSight && _State == State.wondering)
+            if (!playerInSight && _State == State.wondering && _State != State.hiding)
             {
                 agent.acceleration = 3;
                 agent.speed = 2;
@@ -63,7 +63,7 @@ public class SheepMovement : MonoBehaviour
             }
 
             //Fleeing
-            if (playerInSight && _State == State.wondering)
+            if (playerInSight && _State == State.wondering && _State != State.hiding)
             {
                 agent.acceleration = 6;
                 agent.speed = 5;
@@ -72,6 +72,7 @@ public class SheepMovement : MonoBehaviour
             //Hiding
             if (_State == State.hiding)
             {
+                Debug.Log("Hiding");
                 Hide();
             }
         }
@@ -172,20 +173,20 @@ public class SheepMovement : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("HideObj"))
-        {
+        {            
             //Get the script from the hidding obj
             hideObjects hoScript = col.gameObject.GetComponent<hideObjects>();
             //Check if the script is associated 
-            if (hoScript)
-            {
+            if(hoScript)
                 //check if the sheep can use this hide object to hide
                 if (hoScript.occupied == false)
                 {
+                    Debug.Log("here");
                     hidePoint = col.transform.position;
                     _State = State.hiding;
                     hoScript.occupied = true;
                 }
-            }
+            
         }
     }
 }
