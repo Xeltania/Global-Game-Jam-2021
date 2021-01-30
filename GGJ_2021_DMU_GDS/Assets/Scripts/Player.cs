@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
 
     [Header("Collider Component")]
-    public Collider col;
+    public Collider CapCol;
+    public Collider SphCol;
 
     [Header("Movement Speed")]
     public float speed;
@@ -24,7 +25,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
     }
 
     //Update is called once per frame.
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             curSpeed = speed;
         }
 
-        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), rb.velocity.y, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
+        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
     }
 
     //Decrease speed function
@@ -69,13 +69,16 @@ public class Player : MonoBehaviour
         rb.velocity = rb.velocity.normalized * curSpeed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Sheep")
+        if (col.gameObject.CompareTag("Sheep"))
         {
+            SheepMovement Behaviour = col.gameObject.GetComponent<SheepMovement>();
+            
             if (!sheepInHand)
             {
                 sheepInHand = true;
+                Behaviour.Caught();
             }
         }
     }
