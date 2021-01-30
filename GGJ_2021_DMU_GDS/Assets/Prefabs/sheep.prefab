@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3973369195596782553}
   - component: {fileID: 325229535798717146}
   - component: {fileID: 3601857090791522373}
-  - component: {fileID: 6039868500525495676}
   - component: {fileID: 185694258193673610}
   - component: {fileID: -1685657428862954567}
   m_Layer: 0
@@ -117,34 +116,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6039868500525495676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3308623250642650882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1bfa9231ab298438719118db43b22a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 3601857090791522373}
-  player: {fileID: 0}
-  isGround:
-    serializedVersion: 2
-    m_Bits: 256
-  isPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  walkPoint: {x: 0, y: 0, z: 0}
-  hidePoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  timeBetweenFlees: 1
-  sightRange: 5
-  playerInSight: 0
-  isCaught: 0
-  isHidding: 0
 --- !u!135 &185694258193673610
 SphereCollider:
   m_ObjectHideFlags: 0
