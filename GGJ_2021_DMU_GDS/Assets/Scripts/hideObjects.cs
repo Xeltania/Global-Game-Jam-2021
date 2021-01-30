@@ -13,25 +13,14 @@ public class hideObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(occupied)
+        if (occupied)
         {
             //do animation
         }
-        if(!occupied)
-        {
-            //stop animation
-        }       
-    }
-
-    private void OnTriggerEnter(Collider col)
-    {
         if (!occupied)
         {
-            if (col.gameObject.tag == "Sheep")
-            {
-                occupied = true;
-            }
+            //stop animation
         }
-        
     }
 }
+   

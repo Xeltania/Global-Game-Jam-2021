@@ -135,7 +135,8 @@ public class sheepBehaviour : MonoBehaviour
                 {
                     hidePoint = col.transform.position;
                     Debug.Log("hidding");
-                    isHidding = true;                  
+                    isHidding = true;
+                    hoScript.occupied = true;
                 }
             }
         }
