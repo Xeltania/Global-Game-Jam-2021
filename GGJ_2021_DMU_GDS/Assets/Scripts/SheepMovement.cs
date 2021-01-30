@@ -27,6 +27,7 @@ public class SheepMovement : MonoBehaviour
 
     [Header("States")]
     public State _State;
+    public bool captured;
 
     [Header("Map Edges")]
     public GameObject map;
@@ -41,6 +42,7 @@ public class SheepMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         _State = State.wondering;
         playerScript = player.GetComponent<Player>();
+        captured = false;
     }
 
     // Update is called once per frame
@@ -48,7 +50,7 @@ public class SheepMovement : MonoBehaviour
     {
         //check if player is in sightrange
         playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
-        if (_State != State.caught)
+        if (_State != State.caught && !captured)
         {
 
 
@@ -77,7 +79,6 @@ public class SheepMovement : MonoBehaviour
         {
             float yOff = 2.5f;
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y + yOff, player.transform.position.z);
-            transform.parent = player.transform;
         }
     }
 
@@ -149,6 +150,14 @@ public class SheepMovement : MonoBehaviour
         }
     }
 
+    public void Caught()
+    {
+        _State = State.caught;
+        captured = true;
+       
+        transform.parent = player.transform;
+       
+    }
 
 
     //Collision with other sheep find new waypoint

@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
 
     [Header("Sheep")]
     public int sheepInHand;
+    public GameObject Sheep;
 
     private float curSpeed = 0;
+    private bool canScore;
 
     //Start is called before the first frame update.
     void Start()
@@ -40,6 +42,18 @@ public class Player : MonoBehaviour
         else
         {
             DecreaseSpeed();
+        }
+
+        if (sheepInHand > 0)
+        {
+            Transform Sheep = this.transform.GetChild(0);
+            if (Input.GetKeyDown(KeyCode.E) && canScore==true)
+            {
+                sheepInHand = 0;
+                Destroy(Sheep.transform.gameObject);
+                Debug.Log("E");
+
+            }
         }
     }
 
@@ -75,14 +89,28 @@ public class Player : MonoBehaviour
         {
             SheepMovement Behaviour = col.gameObject.GetComponent<SheepMovement>();
             
-            if (sheepInHand<2)
+            if (sheepInHand<1 && !Behaviour.captured)
             {
                 sheepInHand++;
-                Behaviour._State=State.caught;
+                Behaviour.Caught();
             }else
             {
                 Debug.Log("You Fucked Up");
             }
         }
+        if (col.gameObject.CompareTag("Goal"))
+        {
+            canScore = true;
+        }
     }
-}
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.CompareTag("Goal"))
+        {
+            canScore = false;
+        }
+    }
+    
+
+}       
+    
