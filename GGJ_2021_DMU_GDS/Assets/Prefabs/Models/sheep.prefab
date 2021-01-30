@@ -169,12 +169,13 @@ MonoBehaviour:
     m_Bits: 512
   walkPoint: {x: 0, y: 0, z: 0}
   hidePoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 2
+  walkPointRange: 7
   timeBetweenFlees: 5
   alreadyFlee: 0
   sightRange: 2
   playerInSight: 0
   _State: 0
+  map: {fileID: 0}
   topEdge: 20
   bottomEdge: -20
   leftEdge: -20

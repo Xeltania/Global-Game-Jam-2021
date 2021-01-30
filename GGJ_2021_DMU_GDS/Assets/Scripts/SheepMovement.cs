@@ -48,33 +48,36 @@ public class SheepMovement : MonoBehaviour
     {
         //check if player is in sightrange
         playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
-
-        //Wondering
-        if (!playerInSight && _State == State.wondering)
+        if (_State != State.caught)
         {
-            agent.acceleration = 3;
-            agent.speed = 2;
-            Wondering();
+
+
+            //Wondering
+            if (!playerInSight && _State == State.wondering)
+            {
+                agent.acceleration = 3;
+                agent.speed = 2;
+                Wondering();
+            }
+
+            //Fleeing
+            if (playerInSight && _State == State.wondering)
+            {
+                agent.acceleration = 6;
+                agent.speed = 5;
+                Flee();
+            }
+            //Hiding
+            if (_State == State.hiding)
+            {
+                Hide();
+            }
         }
-
-        //Fleeing
-        if (playerInSight && _State == State.wondering)
+        else
         {
-            agent.acceleration = 6;
-            agent.speed = 5;
-            Flee();
-        }
-
-        //Caught
-        if (_State == State.caught)
-        {
-            Follow();
-        }
-
-        //Hiding
-        if (_State == State.hiding)
-        {
-            Hide();
+            float yOff = 2.5f;
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + yOff, player.transform.position.z);
+            transform.parent = player.transform;
         }
     }
 
@@ -98,7 +101,7 @@ public class SheepMovement : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround)) walkPointSet = true;
         walkPoint = new Vector3( Mathf.Clamp(transform.position.x + randomX, leftEdge, rightEdge), transform.position.y, Mathf.Clamp(transform.position.z + randomZ, bottomEdge, topEdge));
-        Debug.Log(walkPoint.x + " " + walkPoint.y + " " + walkPoint.z);
+       // Debug.Log(walkPoint.x + " " + walkPoint.y + " " + walkPoint.z);
         return walkPoint;
     }
 
@@ -124,11 +127,13 @@ public class SheepMovement : MonoBehaviour
 
     private void ResetFlee()
     {
-        SearchWalkPoint();
-        alreadyFlee = false;
-        _State = State.wondering;
+        if (_State != State.caught)
+        {
+            SearchWalkPoint();
+            alreadyFlee = false;
+            _State = State.wondering;
+        }
     }
-
     private void Follow()
     {
         agent.acceleration = 3;
@@ -144,10 +149,7 @@ public class SheepMovement : MonoBehaviour
         }
     }
 
-    public void Caught()
-    {
-        _State = State.caught;
-    }
+
 
     //Collision with other sheep find new waypoint
     private void OnCollisionEnter(Collision collision)

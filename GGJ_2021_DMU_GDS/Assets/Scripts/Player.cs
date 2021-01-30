@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public float acceleration;
 
     [Header("Sheep")]
-    public bool sheepInHand;
+    public int sheepInHand;
 
     private float curSpeed = 0;
 
@@ -75,10 +75,13 @@ public class Player : MonoBehaviour
         {
             SheepMovement Behaviour = col.gameObject.GetComponent<SheepMovement>();
             
-            if (!sheepInHand)
+            if (sheepInHand<2)
             {
-                sheepInHand = true;
-                Behaviour.Caught();
+                sheepInHand++;
+                Behaviour._State=State.caught;
+            }else
+            {
+                Debug.Log("You Fucked Up");
             }
         }
     }
