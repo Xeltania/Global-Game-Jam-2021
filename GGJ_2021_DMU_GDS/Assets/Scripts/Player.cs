@@ -30,13 +30,39 @@ public class Player : MonoBehaviour
         float xMov = Input.GetAxisRaw("Horizontal");
         float zMov = Input.GetAxisRaw("Vertical");
 
-        rb.velocity = new Vector3(xMov, rb.velocity.y, zMov) * curSpeed * Time.deltaTime;
+        if ((xMov != 0) || (zMov !=0))
+        {
+            IncreaseSpeed();
+        }
+        else
+        {
+            DecreaseSpeed();
+        }
+    }
 
-        curSpeed = Mathf.MoveTowards(curSpeed, speed, acceleration);
+    //Increase speed function
+    void IncreaseSpeed()
+    {
+        curSpeed = Mathf.MoveTowards(curSpeed, speed, acceleration * Time.deltaTime);
 
         if (curSpeed > speed)
         {
             curSpeed = speed;
         }
+
+        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), rb.velocity.y, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
+    }
+
+    //Decrease speed function
+    void DecreaseSpeed()
+    {
+        curSpeed = Mathf.MoveTowards(curSpeed, 0, acceleration * Time.deltaTime);
+
+        if (curSpeed < 0)
+        {
+            curSpeed = 0;
+        }
+
+        rb.velocity = rb.velocity.normalized * curSpeed * Time.deltaTime;
     }
 }
