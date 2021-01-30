@@ -38,6 +38,15 @@ public class GameController : MonoBehaviour
             }
         }
 
+        if(timeLeft <= 0)
+        {
+            //End the game, show score and option to play again or return to menu
+            //Pause the game - do not allow escape to pause, hide UI
+            //Display end game canvas - has score
+            //Play Again - Reload scene
+            //Menu - Load Menu Scene
+        }
+
 
     }
 
