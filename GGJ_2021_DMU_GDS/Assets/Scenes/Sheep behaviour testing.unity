@@ -298,9 +298,14 @@ Transform:
   m_GameObject: {fileID: 234311656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.934554, y: 3.934554, z: 3.934554}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 10.23}
+  m_LocalScale: {x: 3.2472, y: 3.2472, z: 3.2472}
+>>>>>>> parent of b9c4b54... spawn behaviour
 =======
   m_LocalPosition: {x: 0, y: 0, z: 10.23}
   m_LocalScale: {x: 3.2472, y: 3.2472, z: 3.2472}
@@ -399,6 +404,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 3
 =======
   m_LocalPosition: {x: 0, y: 0, z: 10.23}
@@ -407,6 +413,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
 >>>>>>> Stashed changes
+=======
+  m_RootOrder: 7
+>>>>>>> parent of b9c4b54... spawn behaviour
 =======
   m_RootOrder: 7
 >>>>>>> parent of b9c4b54... spawn behaviour
@@ -515,11 +524,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_RootOrder: 4
 =======
   m_RootOrder: 3
 >>>>>>> Stashed changes
+=======
+  m_RootOrder: 8
+>>>>>>> parent of b9c4b54... spawn behaviour
 =======
   m_RootOrder: 8
 >>>>>>> parent of b9c4b54... spawn behaviour
@@ -608,6 +621,7 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52.243004, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!1 &1355979564 stripped
@@ -650,6 +664,8 @@ MonoBehaviour:
   SpawnTime: 5
 --- !u!1001 &2064040693
 =======
+=======
+>>>>>>> parent of b9c4b54... spawn behaviour
 --- !u!1001 &856136529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,6 +736,9 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b8f8a238f99b4429acf783bbe1c7b5, type: 3}
 --- !u!1001 &1848599905
+<<<<<<< HEAD
+>>>>>>> parent of b9c4b54... spawn behaviour
+=======
 >>>>>>> parent of b9c4b54... spawn behaviour
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -727,6 +746,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
 <<<<<<< HEAD
     - target: {fileID: 4970376190237464163, guid: 790453cfee6cc004bbc93046486eba37,
         type: 3}
@@ -770,6 +790,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970376190237464169, guid: 790453cfee6cc004bbc93046486eba37,
 =======
+=======
+>>>>>>> parent of b9c4b54... spawn behaviour
     - target: {fileID: 2208928984470582174, guid: 75b8f8a238f99b4429acf783bbe1c7b5,
         type: 3}
       propertyPath: m_Name
@@ -880,13 +902,20 @@ PrefabInstance:
       value: 0.7015775
       objectReference: {fileID: 0}
     - target: {fileID: 2208928984470582170, guid: 75b8f8a238f99b4429acf783bbe1c7b5,
+<<<<<<< HEAD
+>>>>>>> parent of b9c4b54... spawn behaviour
+=======
 >>>>>>> parent of b9c4b54... spawn behaviour
         type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 4970376190237464169, guid: 790453cfee6cc004bbc93046486eba37,
+=======
+    - target: {fileID: 2208928984470582170, guid: 75b8f8a238f99b4429acf783bbe1c7b5,
+>>>>>>> parent of b9c4b54... spawn behaviour
 =======
     - target: {fileID: 2208928984470582170, guid: 75b8f8a238f99b4429acf783bbe1c7b5,
 >>>>>>> parent of b9c4b54... spawn behaviour
@@ -895,6 +924,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 4970376190237464169, guid: 790453cfee6cc004bbc93046486eba37,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -902,17 +932,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970376190237464169, guid: 790453cfee6cc004bbc93046486eba37,
 =======
+=======
+>>>>>>> parent of b9c4b54... spawn behaviour
     - target: {fileID: 2208928984470582170, guid: 75b8f8a238f99b4429acf783bbe1c7b5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90.893005
       objectReference: {fileID: 0}
     - target: {fileID: 2208928984470582170, guid: 75b8f8a238f99b4429acf783bbe1c7b5,
+<<<<<<< HEAD
+>>>>>>> parent of b9c4b54... spawn behaviour
+=======
 >>>>>>> parent of b9c4b54... spawn behaviour
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
     - target: {fileID: 4970376190237464172, guid: 790453cfee6cc004bbc93046486eba37,
         type: 3}
@@ -928,6 +964,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 790453cfee6cc004bbc93046486eba37, type: 3}
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> parent of b9c4b54... spawn behaviour
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b8f8a238f99b4429acf783bbe1c7b5, type: 3}
 --- !u!1001 &2208928985500104844
@@ -999,4 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b8f8a238f99b4429acf783bbe1c7b5, type: 3}
+<<<<<<< HEAD
+>>>>>>> parent of b9c4b54... spawn behaviour
+=======
 >>>>>>> parent of b9c4b54... spawn behaviour
