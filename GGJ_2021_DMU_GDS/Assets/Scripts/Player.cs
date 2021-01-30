@@ -15,7 +15,10 @@ public class Player : MonoBehaviour
     public float speed;
     public float acceleration;
 
-    public float curSpeed = 0;
+    [Header("Sheep")]
+    public bool sheepInHand;
+
+    private float curSpeed = 0;
 
     //Start is called before the first frame update.
     void Start()
@@ -64,5 +67,16 @@ public class Player : MonoBehaviour
         }
 
         rb.velocity = rb.velocity.normalized * curSpeed * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Sheep")
+        {
+            if (!sheepInHand)
+            {
+                sheepInHand = true;
+            }
+        }
     }
 }
