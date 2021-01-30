@@ -120,6 +120,7 @@ NavMeshAgent:
   m_ObstacleAvoidanceType: 4
 --- !u!135 &185694258193673610
 SphereCollider:
+<<<<<<< HEAD:GGJ_2021_DMU_GDS/Assets/Prefabs/Models/sheep.prefab
 <<<<<<< Updated upstream:GGJ_2021_DMU_GDS/Assets/Prefabs/sheep.prefab
 =======
   m_ObjectHideFlags: 0
@@ -181,6 +182,8 @@ MonoBehaviour:
 --- !u!65 &6260847008567935458
 BoxCollider:
 >>>>>>> Stashed changes:GGJ_2021_DMU_GDS/Assets/Prefabs/Models/sheep.prefab
+=======
+>>>>>>> parent of b5b8865... Revert "spawn behaviour":GGJ_2021_DMU_GDS/Assets/Prefabs/sheep.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

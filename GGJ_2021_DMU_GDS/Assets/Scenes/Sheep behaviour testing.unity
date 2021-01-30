@@ -297,7 +297,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234311656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of b5b8865... Revert "spawn behaviour"
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.934554, y: 3.934554, z: 3.934554}
   m_Children: []
@@ -395,6 +398,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+<<<<<<< HEAD
 =======
   m_LocalPosition: {x: 0, y: 0, z: 10.23}
   m_LocalScale: {x: 4, y: 4, z: 4}
@@ -402,6 +406,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b5b8865... Revert "spawn behaviour"
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &548672539
 MonoBehaviour:
@@ -525,11 +531,15 @@ Transform:
   m_LocalScale: {x: 2.1218, y: 2.1218, z: 2.1218}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_RootOrder: 4
 =======
   m_RootOrder: 3
 >>>>>>> Stashed changes
+=======
+  m_RootOrder: 4
+>>>>>>> parent of b5b8865... Revert "spawn behaviour"
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798885696
 GameObject:
@@ -614,6 +624,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52.243004, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!1 &1355979564 stripped
@@ -734,3 +745,5 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790453cfee6cc004bbc93046486eba37, type: 3}
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b5b8865... Revert "spawn behaviour"
