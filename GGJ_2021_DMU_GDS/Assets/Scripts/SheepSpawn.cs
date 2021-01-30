@@ -13,7 +13,6 @@ public class SheepSpawn : MonoBehaviour
     [Header("Map size")]
     public float MapsizeX; //map bounds
     public float MapsizeZ; //map bounds
-    private float Elevation;
     [Header("Sheep Count")]
     public int MaxSheep; //spawn limiter
     public int currentSheep; //current number of sheep spawned
@@ -45,14 +44,14 @@ public class SheepSpawn : MonoBehaviour
 
     private void Spawn()
     {
-        Vector3 SpawnPos = GetRandomLocation(); //trying to figure out a way to make it so that y is never out of bounds
+        Vector3 SpawnPos = GetRandomLocation(); //sets a random location for a sheep to spawn at
         Vector3 distance = SpawnPos - Player.transform.position;
 
         do
         {
             SpawnPos = GetRandomLocation();
             distance = SpawnPos - Player.transform.position;
-        }while(distance.magnitude < 5);
+        }while(distance.magnitude < 5); //uses the magnitude of the difference between the sheeps potential spawn and the player to see if the sheep is far enough away from the player to spawn
 
             Instantiate(Sheep, SpawnPos, Quaternion.identity);
         
