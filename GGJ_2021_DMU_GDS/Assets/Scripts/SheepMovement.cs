@@ -28,6 +28,13 @@ public class SheepMovement : MonoBehaviour
     [Header("States")]
     public State _State;
 
+    [Header("Map Edges")]
+    public GameObject map;
+    public float topEdge;
+    public float bottomEdge;
+    public float leftEdge;
+    public float rightEdge;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -90,8 +97,9 @@ public class SheepMovement : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround)) walkPointSet = true;
-
-        return walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPoint = new Vector3( Mathf.Clamp(transform.position.x + randomX, leftEdge, rightEdge), transform.position.y, Mathf.Clamp(transform.position.z + randomZ, bottomEdge, topEdge));
+        Debug.Log(walkPoint.x + " " + walkPoint.y + " " + walkPoint.z);
+        return walkPoint;
     }
 
     private void Flee()

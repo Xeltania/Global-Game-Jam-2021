@@ -18,6 +18,8 @@ public class SheepSpawn : MonoBehaviour
     public int currentSheep; //current number of sheep spawned
     [Header("Spawn Timer")]
     public float SpawnTime; //time taken for next sheep to spawn
+    [Header("Spawn Radius")]
+    public float SpawnRadius;
 
 
 
@@ -51,7 +53,7 @@ public class SheepSpawn : MonoBehaviour
         {
             SpawnPos = GetRandomLocation();
             distance = SpawnPos - Player.transform.position;
-        } while (distance.magnitude < 5); //uses the magnitude of the difference between the sheeps potential spawn and the player to see if the sheep is far enough away from the player to spawn
+        } while (distance.magnitude < SpawnRadius); //uses the magnitude of the difference between the sheeps potential spawn and the player to see if the sheep is far enough away from the player to spawn
 
         Instantiate(Sheep, SpawnPos, Quaternion.identity);
 
