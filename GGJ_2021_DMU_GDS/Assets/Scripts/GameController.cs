@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    float score;
+    int score;
     float timeLeft;
     Canvas pausePanel;
     Collider scoreZone;
+
+    bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,19 @@ public class GameController : MonoBehaviour
         Debug.Log("TimeLeft: " + timeLeft);
         Debug.Log("Timer: " + GetTimeAsString());
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameIsPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
+
     }
 
     public float GetTime()
@@ -30,7 +45,7 @@ public class GameController : MonoBehaviour
         return timeLeft;
     }
 
-    public float GetScore()
+    public int GetScore()
     {
         return score;
     }
@@ -53,7 +68,7 @@ public class GameController : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-
+        gameIsPaused = true;
         //Disable scripts that still work while timescale is set to 0
 
     }
@@ -61,7 +76,7 @@ public class GameController : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
-
+        gameIsPaused = false;
         //Enable scripts that still work while timescale is set to 0
     }
 
