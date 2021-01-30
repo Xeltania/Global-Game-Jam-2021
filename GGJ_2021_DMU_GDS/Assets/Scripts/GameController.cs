@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
         timeLeft -= Time.deltaTime;
         Debug.Log("TimeLeft: " + timeLeft);
         Debug.Log("Timer: " + GetTimeAsString());
+        Debug.Log("Score: " + score);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -85,12 +86,14 @@ public class GameController : MonoBehaviour
         score++;
     }
 
-    void OnTriggerEnter(Collider otherActor)
+    void OnTriggerEnter(Collider other)
     {
-        if(otherActor.gameObject.tag == "Sheep")
+        Debug.Log("Collider Hit");
+        if(other.tag == "Sheep")
         {
-            score += 1;
-            //otherActor.gameObject.GetComponent<SheepScript>().Scored(); //Function which deactivates
+            Debug.Log("Is Sheep");
+            AddScore();
+            other.gameObject.GetComponent<SheepTemp>().StopSheep(); //Function which deactivates
         }
     }
 }
