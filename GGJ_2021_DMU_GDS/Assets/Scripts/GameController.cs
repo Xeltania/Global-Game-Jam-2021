@@ -10,11 +10,12 @@ public class GameController : MonoBehaviour
     Canvas pausePanel;
     Collider scoreZone;
 
-    bool gameIsPaused { get; set; }
+    public bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         timeLeft = 120;
     }
 
@@ -24,29 +25,6 @@ public class GameController : MonoBehaviour
         timeLeft -= Time.deltaTime;
         Debug.Log("TimeLeft: " + timeLeft);
         Debug.Log("Timer: " + GetTimeAsString());
-        Debug.Log("Score: " + score);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-
-        if(timeLeft <= 0)
-        {
-            //End the game, show score and option to play again or return to menu
-            //Pause the game, Hide Game UI and disallow player control - WASD, Esc, etc...
-            //Display end game canvas
-            //Play Again - Reload scene
-            //Menu - Load Menu Scene
-        }
-
 
     }
 
@@ -64,13 +42,17 @@ public class GameController : MonoBehaviour
     public string GetTimeAsString()
     {
         string result;
-        int timeAsSeconds;
+        int timeAsSeconds = (int)timeLeft % 60;
+        int Digit1;
+        int Digit2;
         int timeAsMinutes;
 
-        timeAsSeconds = (int)timeLeft % 60;
+        Digit1 = (int)timeAsSeconds / 10;
+        Digit2 = (int)timeAsSeconds % 10;
+
         timeAsMinutes = ((int)timeLeft / 60);
 
-        result = timeAsMinutes.ToString() + ":" + timeAsSeconds.ToString();
+        result = timeAsMinutes.ToString() + ":" + Digit1.ToString() + Digit2.ToString();
 
         return result;
     }
@@ -95,14 +77,13 @@ public class GameController : MonoBehaviour
         score++;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider otherActor)
     {
-        Debug.Log("Collider Hit");
-        if(other.tag == "Sheep")
+        if(otherActor.CompareTag("Sheep"))
         {
-            Debug.Log("Is Sheep");
-            AddScore();
-            other.gameObject.GetComponent<SheepTemp>().StopSheep(); //Function which deactivates
+            score += 1;
+            otherActor.GetComponent<SheepMovement>().enabled = false;
+            Destroy(otherActor.gameObject, 2f);
         }
     }
 }
