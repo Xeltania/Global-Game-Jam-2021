@@ -28,7 +28,7 @@ public class pauseMenu : MonoBehaviour
     void Update()
     {
         //find if game is paused
-        paused = pause.gameIsPaused;
+        //paused = pause.gameIsPaused;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

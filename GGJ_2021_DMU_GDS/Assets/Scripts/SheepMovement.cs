@@ -95,7 +95,10 @@ public class SheepMovement : MonoBehaviour
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y + yOff, player.transform.position.z);
         }
     }
-
+    public void Scored()
+    {
+        Destroy(gameObject);
+    }
     private void Wondering()
     {
         if (!walkPointSet) SearchWalkPoint();

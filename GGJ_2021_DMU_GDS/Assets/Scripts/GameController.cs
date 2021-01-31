@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    int score;
+    public int score;
     float timeLeft;
     Canvas pausePanel;
     Collider scoreZone;
 
 
-    bool gameIsPaused { get; set; }
+    public bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -88,10 +88,12 @@ public class GameController : MonoBehaviour
 
     void OnTriggerEnter(Collider otherActor)
     {
+        
         if(otherActor.gameObject.tag == "Sheep")
         {
             score += 1;
-            //otherActor.gameObject.GetComponent<SheepScript>().Scored(); //Function which deactivates
+            
+            otherActor.gameObject.GetComponent<SheepMovement>().Scored(); //Function which deactivates
         }
     }
 }
