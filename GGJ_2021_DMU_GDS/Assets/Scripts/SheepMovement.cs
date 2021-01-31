@@ -9,11 +9,12 @@ public class SheepMovement : MonoBehaviour
     [Header("Game Objects")]
     public GameObject player;
     public GameObject dog;
+    public GameObject scoringArea;
     public Player playerScript;
 
     [Header("NavMesh")]
     public NavMeshAgent agent;
-    public LayerMask isGround, isPlayer, isDog;
+    public LayerMask isGround, isPlayer, isScore;
 
     [Header("For Movement")]
     public Vector3 walkPoint, hidePoint;
@@ -109,6 +110,7 @@ public class SheepMovement : MonoBehaviour
 
     private Vector3 SearchWalkPoint()
     {
+        
         //calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
@@ -175,7 +177,7 @@ public class SheepMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.CompareTag("HideObj"))
         {            
@@ -188,7 +190,7 @@ public class SheepMovement : MonoBehaviour
                 {                    
                     hidePoint = col.transform.position;
                     _State = State.hiding;
-                    hoScript.sheepCount++;
+                    hoScript.occupied = true;
                 }
             
         }

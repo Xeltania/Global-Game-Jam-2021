@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerScript: {fileID: 0}
   dog: {fileID: 0}
+  playerScript: {fileID: 0}
   agent: {fileID: 2208928984470582164}
   isGround:
     serializedVersion: 2
@@ -168,9 +168,9 @@ MonoBehaviour:
   isPlayer:
     serializedVersion: 2
     m_Bits: 512
-  isDog:
+  isScore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   walkPoint: {x: 0, y: 0, z: 0}
   hidePoint: {x: 0, y: 0, z: 0}
   walkPointRange: 7

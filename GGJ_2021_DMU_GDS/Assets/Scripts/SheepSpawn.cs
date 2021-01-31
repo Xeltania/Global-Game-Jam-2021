@@ -10,6 +10,7 @@ public class SheepSpawn : MonoBehaviour
     [Header("Game Objects")]
     public GameObject Sheep; // uses sheep prefab
     public GameObject Player; // will be used to create a ring around the player in which sheep cant spawn
+    public GameObject scoringArea;
     [Header("Map size")]
     public float MapsizeX; //map bounds
     public float MapsizeZ; //map bounds
@@ -20,6 +21,7 @@ public class SheepSpawn : MonoBehaviour
     public float SpawnTime; //time taken for next sheep to spawn
     [Header("Spawn Radius")]
     public float SpawnRadius;
+    public float playerRadius;
 
 
 
@@ -46,14 +48,18 @@ public class SheepSpawn : MonoBehaviour
 
     private void Spawn()
     {
+
         Vector3 SpawnPos = GetRandomLocation(); //sets a random location for a sheep to spawn at
         Vector3 distance = SpawnPos - Player.transform.position;
+        Vector3 distance2 = SpawnPos - scoringArea.transform.position;
 
         do
         {
             SpawnPos = GetRandomLocation();
             distance = SpawnPos - Player.transform.position;
-        } while (distance.magnitude < SpawnRadius); //uses the magnitude of the difference between the sheeps potential spawn and the player to see if the sheep is far enough away from the player to spawn
+            distance2 = SpawnPos - scoringArea.transform.position;
+
+        } while (distance.magnitude < playerRadius || distance2.magnitude < SpawnRadius); //uses the magnitude of the difference between the sheeps potential spawn and the player to see if the sheep is far enough away from the player to spawn
 
         Instantiate(Sheep, SpawnPos, Quaternion.identity);
 

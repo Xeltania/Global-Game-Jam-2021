@@ -35,7 +35,7 @@ public class hideObjects : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Sheep"))
         {
-            sheepCount--;
+            occupied = false;
         }
     }
 }

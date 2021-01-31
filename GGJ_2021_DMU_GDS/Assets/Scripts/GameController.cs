@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     Canvas pausePanel;
     Collider scoreZone;
 
+
     bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
