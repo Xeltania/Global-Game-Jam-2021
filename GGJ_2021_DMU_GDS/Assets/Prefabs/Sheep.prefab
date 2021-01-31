@@ -747,8 +747,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4449775428279262508}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.5150833, y: -0.05634153, z: 0.63730323}
+  m_LocalRotation: {x: -0.00000032401442, y: -0.7071068, z: -0.70710677, w: 0.00000035017726}
+  m_LocalPosition: {x: 0.51508313, y: -0.0563418, z: 0.6373027}
   m_LocalScale: {x: 360.88284, y: 360.88284, z: 360.88284}
   m_Children:
   - {fileID: 3795174508580063728}
@@ -761,7 +761,7 @@ Transform:
   - {fileID: 4510391952043797134}
   m_Father: {fileID: 8751049040166648234}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.00002}
 --- !u!1 &4705563476466221510
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 5581910782615625737}
   m_Layer: 0
   m_Name: Sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -962,7 +962,7 @@ Animator:
   m_GameObject: {fileID: 5704549330039409593}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 08b1bdbe5652a884594becd186a94eb8, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8e77f83a348e1a4ba449af0bc2e467a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1034,7 +1034,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 4.722338
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5581910782615625737
 MonoBehaviour:
