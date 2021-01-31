@@ -10,11 +10,12 @@ public class GameController : MonoBehaviour
     Canvas pausePanel;
     Collider scoreZone;
 
-    bool gameIsPaused { get; set; }
+    public bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         timeLeft = 120;
     }
 
@@ -24,19 +25,6 @@ public class GameController : MonoBehaviour
         timeLeft -= Time.deltaTime;
         Debug.Log("TimeLeft: " + timeLeft);
         Debug.Log("Timer: " + GetTimeAsString());
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-
 
     }
 
@@ -54,13 +42,17 @@ public class GameController : MonoBehaviour
     public string GetTimeAsString()
     {
         string result;
-        int timeAsSeconds;
+        int timeAsSeconds = (int)timeLeft % 60;
+        int Digit1;
+        int Digit2;
         int timeAsMinutes;
 
-        timeAsSeconds = (int)timeLeft % 60;
+        Digit1 = (int)timeAsSeconds / 10;
+        Digit2 = (int)timeAsSeconds % 10;
+
         timeAsMinutes = ((int)timeLeft / 60);
 
-        result = timeAsMinutes.ToString() + ":" + timeAsSeconds.ToString();
+        result = timeAsMinutes.ToString() + ":" + Digit1.ToString() + Digit2.ToString();
 
         return result;
     }
