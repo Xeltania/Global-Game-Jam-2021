@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     [Header("Collider Component")]
     public Collider col;
 
+
     [Header("Movement Speed")]
     public float speed;
     public float acceleration;
+
 
     [Header("Sheep")]
     public int sheepInHand;
@@ -22,11 +24,15 @@ public class Player : MonoBehaviour
     private float curSpeed = 0;
     private bool canScore;
 
+
+
     //Start is called before the first frame update.
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
         col = GetComponent<Collider>();
+
     }
 
     //Update is called once per frame.
@@ -44,6 +50,7 @@ public class Player : MonoBehaviour
             DecreaseSpeed();
         }
 
+
         if (sheepInHand > 0)
         {
             Transform Sheep = this.transform.GetChild(0);
@@ -55,6 +62,7 @@ public class Player : MonoBehaviour
 
             }
         }
+
     }
 
     //Increase speed function
@@ -67,7 +75,7 @@ public class Player : MonoBehaviour
             curSpeed = speed;
         }
 
-        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
+        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), rb.velocity.y, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
     }
 
     //Decrease speed function
@@ -82,6 +90,7 @@ public class Player : MonoBehaviour
 
         rb.velocity = rb.velocity.normalized * curSpeed * Time.deltaTime;
     }
+
 
     private void OnTriggerEnter(Collider col)
     {
@@ -110,6 +119,7 @@ public class Player : MonoBehaviour
             canScore = false;
         }
     }
-   
-}       
+    
+
+}      
     

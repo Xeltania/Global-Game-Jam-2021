@@ -9,11 +9,12 @@ public class SheepMovement : MonoBehaviour
     [Header("Game Objects")]
     public GameObject player;
     public GameObject dog;
+    public GameObject scoringArea;
     public Player playerScript;
 
     [Header("NavMesh")]
     public NavMeshAgent agent;
-    public LayerMask isGround, isPlayer, isDog;
+    public LayerMask isGround, isPlayer, isScore;
 
     [Header("For Movement")]
     public Vector3 walkPoint, hidePoint;
@@ -109,13 +110,18 @@ public class SheepMovement : MonoBehaviour
 
     private Vector3 SearchWalkPoint()
     {
-        //calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        Vector3 distance;
+        do
+        {
+            //calculate random point in range
+            float randomZ = Random.Range(-walkPointRange, walkPointRange);
+            float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround)) walkPointSet = true;
-        walkPoint = new Vector3( Mathf.Clamp(transform.position.x + randomX, leftEdge, rightEdge), transform.position.y, Mathf.Clamp(transform.position.z + randomZ, bottomEdge, topEdge));
-       // Debug.Log(walkPoint.x + " " + walkPoint.y + " " + walkPoint.z);
+            if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround)) walkPointSet = true;
+            walkPoint = new Vector3(Mathf.Clamp(transform.position.x + randomX, leftEdge, rightEdge), transform.position.y, Mathf.Clamp(transform.position.z + randomZ, bottomEdge, topEdge));
+
+            distance = walkPoint - scoringArea.transform.position;
+        } while (distance.magnitude < 7);
         return walkPoint;
     }
 
@@ -175,7 +181,7 @@ public class SheepMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.CompareTag("HideObj"))
         {            
@@ -188,7 +194,7 @@ public class SheepMovement : MonoBehaviour
                 {                    
                     hidePoint = col.transform.position;
                     _State = State.hiding;
-                    hoScript.sheepCount++;
+                    hoScript.occupied = true;
                 }
             
         }

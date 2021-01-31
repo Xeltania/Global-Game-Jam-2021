@@ -10,12 +10,12 @@ public class GameController : MonoBehaviour
     Canvas pausePanel;
     Collider scoreZone;
 
-    public bool gameIsPaused { get; set; }
+
+    bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
         timeLeft = 120;
     }
 
@@ -25,6 +25,19 @@ public class GameController : MonoBehaviour
         timeLeft -= Time.deltaTime;
         Debug.Log("TimeLeft: " + timeLeft);
         Debug.Log("Timer: " + GetTimeAsString());
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameIsPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
 
     }
 
@@ -42,17 +55,13 @@ public class GameController : MonoBehaviour
     public string GetTimeAsString()
     {
         string result;
-        int timeAsSeconds = (int)timeLeft % 60;
-        int Digit1;
-        int Digit2;
+        int timeAsSeconds;
         int timeAsMinutes;
 
-        Digit1 = (int)timeAsSeconds / 10;
-        Digit2 = (int)timeAsSeconds % 10;
-
+        timeAsSeconds = (int)timeLeft % 60;
         timeAsMinutes = ((int)timeLeft / 60);
 
-        result = timeAsMinutes.ToString() + ":" + Digit1.ToString() + Digit2.ToString();
+        result = timeAsMinutes.ToString() + ":" + timeAsSeconds.ToString();
 
         return result;
     }
@@ -79,11 +88,10 @@ public class GameController : MonoBehaviour
 
     void OnTriggerEnter(Collider otherActor)
     {
-        if(otherActor.CompareTag("Sheep"))
+        if(otherActor.gameObject.tag == "Sheep")
         {
             score += 1;
-            otherActor.GetComponent<SheepMovement>().enabled = false;
-            Destroy(otherActor.gameObject, 2f);
+            //otherActor.gameObject.GetComponent<SheepScript>().Scored(); //Function which deactivates
         }
     }
 }

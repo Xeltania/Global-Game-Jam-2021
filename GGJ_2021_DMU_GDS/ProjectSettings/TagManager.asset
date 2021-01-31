@@ -8,6 +8,8 @@ TagManager:
   - Sheep
   - HideObj
   - Goal
+  - DogActionArea
+  - Dog
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Gound
   - Player
-  - 
-  - 
+  - ScoringArea
+  - Fence
   - 
   - 
   - 
