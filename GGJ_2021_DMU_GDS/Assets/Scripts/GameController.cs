@@ -79,10 +79,11 @@ public class GameController : MonoBehaviour
 
     void OnTriggerEnter(Collider otherActor)
     {
-        if(otherActor.gameObject.tag == "Sheep")
+        if(otherActor.CompareTag("Sheep"))
         {
             score += 1;
-            //otherActor.gameObject.GetComponent<SheepScript>().Scored(); //Function which deactivates
+            otherActor.GetComponent<SheepMovement>().enabled = false;
+            Destroy(otherActor.gameObject, 2f);
         }
     }
 }
