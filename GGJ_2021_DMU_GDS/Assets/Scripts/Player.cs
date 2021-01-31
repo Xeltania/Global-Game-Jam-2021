@@ -9,24 +9,36 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
 
     [Header("Collider Component")]
+<<<<<<< HEAD
     public Collider CapCol;
     public Collider SphCol;
+=======
+    public Collider col;
+>>>>>>> main
 
     [Header("Movement Speed")]
     public float speed;
     public float acceleration;
 
+<<<<<<< HEAD
     [Header("Sheep")]
     public int sheepInHand;
     public GameObject Sheep;
 
     private float curSpeed = 0;
     private bool canScore;
+=======
+    public float curSpeed = 0;
+>>>>>>> main
 
     //Start is called before the first frame update.
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+<<<<<<< HEAD
+=======
+        col = GetComponent<Collider>();
+>>>>>>> main
     }
 
     //Update is called once per frame.
@@ -43,6 +55,7 @@ public class Player : MonoBehaviour
         {
             DecreaseSpeed();
         }
+<<<<<<< HEAD
 
         if (sheepInHand > 0)
         {
@@ -55,6 +68,8 @@ public class Player : MonoBehaviour
 
             }
         }
+=======
+>>>>>>> main
     }
 
     //Increase speed function
@@ -67,7 +82,11 @@ public class Player : MonoBehaviour
             curSpeed = speed;
         }
 
+<<<<<<< HEAD
         rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
+=======
+        rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal"), rb.velocity.y, Input.GetAxisRaw("Vertical")) * curSpeed * Time.deltaTime;
+>>>>>>> main
     }
 
     //Decrease speed function
@@ -82,6 +101,7 @@ public class Player : MonoBehaviour
 
         rb.velocity = rb.velocity.normalized * curSpeed * Time.deltaTime;
     }
+<<<<<<< HEAD
 
     private void OnTriggerEnter(Collider col)
     {
@@ -114,3 +134,6 @@ public class Player : MonoBehaviour
 
 }       
     
+=======
+}
+>>>>>>> main
