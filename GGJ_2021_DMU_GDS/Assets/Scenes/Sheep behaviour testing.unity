@@ -485,13 +485,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798885696}
-  m_LocalRotation: {x: 0.44027448, y: -0, z: -0, w: 0.89786327}
-  m_LocalPosition: {x: 0, y: 27.3, z: -25.74}
+  m_LocalRotation: {x: 0.5089594, y: -0, z: -0, w: 0.86079055}
+  m_LocalPosition: {x: 0, y: 26.42, z: -20.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 52.243004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 61.189003, y: 0, z: 0}
 --- !u!1001 &951328717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 6990241112629813909, guid: b883213288700414a9fe1214bfdfdc68,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 199.9
       objectReference: {fileID: 0}
     - target: {fileID: 6990241112629813909, guid: b883213288700414a9fe1214bfdfdc68,
         type: 3}
@@ -650,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 1423308953747527355, guid: b883213288700414a9fe1214bfdfdc68,
         type: 3}
       propertyPath: MaxSheep
-      value: 84
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1423308953747527355, guid: b883213288700414a9fe1214bfdfdc68,
         type: 3}
