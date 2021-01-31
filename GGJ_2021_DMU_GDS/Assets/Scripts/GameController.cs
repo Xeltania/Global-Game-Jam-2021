@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     Collider scoreZone;
 
 
-    bool gameIsPaused { get; set; }
+    public bool gameIsPaused { get; set; }
 
     // Start is called before the first frame update
     void Start()

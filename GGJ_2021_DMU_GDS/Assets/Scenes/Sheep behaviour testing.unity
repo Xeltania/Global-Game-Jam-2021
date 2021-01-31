@@ -303,6 +303,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &381672327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5590319427606410523, guid: b883213288700414a9fe1214bfdfdc68,
+    type: 3}
+  m_PrefabInstance: {fileID: 511688341065135886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &777952155
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +573,28 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9142187344742732461}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1969771659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969771658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb10cb5e89baab44083974a3634a3112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sheep: {fileID: 5704549330039409593, guid: 30c314d3ae025c246bf9f46d12775c34, type: 3}
+  Player: {fileID: 381672327}
+  scoringArea: {fileID: 1969771658}
+  MapsizeX: 2
+  MapsizeZ: 2
+  MaxSheep: 10
+  currentSheep: 0
+  SpawnTime: 2
+  SpawnRadius: 7
+  playerRadius: 4
 --- !u!114 &1969771663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +695,8 @@ PrefabInstance:
       propertyPath: playerRadius
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1423308953747527355, guid: b883213288700414a9fe1214bfdfdc68, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b883213288700414a9fe1214bfdfdc68, type: 3}
 --- !u!1001 &9142187344742732461
 PrefabInstance:
@@ -679,7 +708,7 @@ PrefabInstance:
     - target: {fileID: 9142187343445100071, guid: d534a61f64d6f6043849281ff13ee3aa,
         type: 3}
       propertyPath: m_Name
-      value: Plane (1)
+      value: ScoreZone
       objectReference: {fileID: 0}
     - target: {fileID: 9142187343445100067, guid: d534a61f64d6f6043849281ff13ee3aa,
         type: 3}
@@ -736,7 +765,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9142187344187142482, guid: d534a61f64d6f6043849281ff13ee3aa,
+    - target: {fileID: 9142187343215224670, guid: d534a61f64d6f6043849281ff13ee3aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142187343362006305, guid: d534a61f64d6f6043849281ff13ee3aa,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -746,17 +780,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9142187343215224670, guid: d534a61f64d6f6043849281ff13ee3aa,
+    - target: {fileID: 9142187344187142482, guid: d534a61f64d6f6043849281ff13ee3aa,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9142187345216920430, guid: d534a61f64d6f6043849281ff13ee3aa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142187343362006305, guid: d534a61f64d6f6043849281ff13ee3aa,
         type: 3}
       propertyPath: m_Enabled
       value: 0
