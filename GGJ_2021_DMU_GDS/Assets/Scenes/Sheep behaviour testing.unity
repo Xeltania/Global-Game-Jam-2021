@@ -402,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777952155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.62, y: 0.66999996, z: 17.65}
+  m_LocalPosition: {x: -12.27, y: 0.66999996, z: 5.3}
   m_LocalScale: {x: 2.1218, y: 2.1218, z: 2.1218}
   m_Children: []
   m_Father: {fileID: 0}
@@ -653,7 +653,7 @@ PrefabInstance:
     - target: {fileID: 1423308953747527355, guid: b883213288700414a9fe1214bfdfdc68,
         type: 3}
       propertyPath: MaxSheep
-      value: 400
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b883213288700414a9fe1214bfdfdc68, type: 3}

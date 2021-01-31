@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public enum State { wondering, caught, hiding, flee };
+public enum State { wondering, caught, hiding, flee};
 
 public class SheepMovement : MonoBehaviour
 {
     //Variables.
     [Header("Game Objects")]
     public GameObject player;
+    public GameObject dog;
     public Player playerScript;
 
     [Header("NavMesh")]
     public NavMeshAgent agent;
-    public LayerMask isGround, isPlayer;
+    public LayerMask isGround, isPlayer, isDog;
 
     [Header("For Movement")]
     public Vector3 walkPoint, hidePoint;
@@ -24,6 +25,7 @@ public class SheepMovement : MonoBehaviour
     public bool alreadyFlee;
     public float sightRange;
     public bool playerInSight;
+    public bool dogInsight;
 
     [Header("States")]
     public State _State;
@@ -38,6 +40,7 @@ public class SheepMovement : MonoBehaviour
 
     private void Awake()
     {
+        dog = GameObject.FindGameObjectWithTag("Dog");
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         _State = State.wondering;
@@ -49,7 +52,9 @@ public class SheepMovement : MonoBehaviour
     void Update()
     {
         //check if player is in sightrange
-        playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
+        //playerInSight = Physics.CheckSphere(transform.position, sightRange, isPlayer);
+        //dogInsight = Physics.CheckSphere(transform.position, sightRange, isDog);
+
         if (_State != State.caught && !captured)
         {
 
@@ -63,18 +68,25 @@ public class SheepMovement : MonoBehaviour
             }
 
             //Fleeing
-            if (playerInSight && _State == State.wondering && _State != State.hiding)
+            if (_State == State.wondering && _State != State.hiding)
             {
-                agent.acceleration = 6;
-                agent.speed = 5;
-                Flee();
+                
+                if(playerInSight)
+                {
+                    Flee(player.transform.position);
+                }
+                if(dogInsight)
+                {
+                    Debug.Log("Someone Barked!");
+                    Flee(dog.transform.position);
+                }
             }
             //Hiding
             if (_State == State.hiding)
             {
-                Debug.Log("Hiding");
                 Hide();
             }
+
         }
         else
         {
@@ -107,41 +119,35 @@ public class SheepMovement : MonoBehaviour
         return walkPoint;
     }
 
-    private void Flee()
+    private void Flee(Vector3 runFrom)
     {
+        agent.acceleration = 6;
+        agent.speed = 5;
+
         if (!alreadyFlee)
         {
             _State = State.flee;
-
-            walkPoint = SearchWalkPoint(); //sets a random location for a sheep to spawn at
-            Vector3 distance = walkPoint - player.transform.position;
-            do
-            {
-                walkPoint = SearchWalkPoint();
-                distance = walkPoint - player.transform.position;
-            } while (distance.magnitude < 5);
-
-            agent.SetDestination(walkPoint);
+            runFrom = runFrom - transform.position;
+            Vector3 newFleeTarget = (transform.position + - (runFrom.normalized) * 10);
+            agent.SetDestination(newFleeTarget);
             alreadyFlee = true;
             Invoke(nameof(ResetFlee), timeBetweenFlees);
         }
     }
 
+    
+
     private void ResetFlee()
     {
         if (_State != State.caught)
         {
-            SearchWalkPoint();
+            agent.acceleration = 3;
+            agent.speed = 2;
             alreadyFlee = false;
+            dogInsight = false;
             _State = State.wondering;
         }
-    }
-    private void Follow()
-    {
-        agent.acceleration = 3;
-        agent.speed = 2;
-        agent.SetDestination(walkPoint);
-    }
+    }   
 
     private void Hide()
     {
@@ -154,11 +160,10 @@ public class SheepMovement : MonoBehaviour
     public void Caught()
     {
         _State = State.caught;
-        captured = true;
-       
+        captured = true;       
         transform.parent = player.transform;
        
-    }
+    }   
 
 
     //Collision with other sheep find new waypoint
@@ -180,13 +185,13 @@ public class SheepMovement : MonoBehaviour
             if(hoScript)
                 //check if the sheep can use this hide object to hide
                 if (hoScript.occupied == false)
-                {
-                    Debug.Log("here");
+                {                    
                     hidePoint = col.transform.position;
                     _State = State.hiding;
-                    hoScript.occupied = true;
+                    hoScript.sheepCount++;
                 }
             
         }
     }
+
 }

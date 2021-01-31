@@ -5,8 +5,10 @@ using UnityEngine;
 public class hideObjects : MonoBehaviour
 {
     public bool occupied;
+    public int sheepCount;
     private void Awake()
     {
+        sheepCount = 0;
         occupied = false;
     }
 
@@ -20,8 +22,20 @@ public class hideObjects : MonoBehaviour
         if(!occupied)
         {
             //stop animation
-        }       
+        }
+        if (sheepCount == 0)
+        {
+            occupied = false;
+        }
+        else
+            occupied = true;
     }
 
-    
+    private void OnTriggerExit(Collider col)
+    {
+        if(col.gameObject.CompareTag("Sheep"))
+        {
+            sheepCount--;
+        }
+    }
 }
