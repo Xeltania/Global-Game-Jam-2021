@@ -110,14 +110,18 @@ public class SheepMovement : MonoBehaviour
 
     private Vector3 SearchWalkPoint()
     {
-        
-        //calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        Vector3 distance;
+        do
+        {
+            //calculate random point in range
+            float randomZ = Random.Range(-walkPointRange, walkPointRange);
+            float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround)) walkPointSet = true;
-        walkPoint = new Vector3( Mathf.Clamp(transform.position.x + randomX, leftEdge, rightEdge), transform.position.y, Mathf.Clamp(transform.position.z + randomZ, bottomEdge, topEdge));
-       // Debug.Log(walkPoint.x + " " + walkPoint.y + " " + walkPoint.z);
+            if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround)) walkPointSet = true;
+            walkPoint = new Vector3(Mathf.Clamp(transform.position.x + randomX, leftEdge, rightEdge), transform.position.y, Mathf.Clamp(transform.position.z + randomZ, bottomEdge, topEdge));
+
+            distance = walkPoint - scoringArea.transform.position;
+        } while (distance.magnitude < 7);
         return walkPoint;
     }
 

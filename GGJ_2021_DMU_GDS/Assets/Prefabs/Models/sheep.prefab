@@ -160,6 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   dog: {fileID: 0}
+  scoringArea: {fileID: 9142187343445100071, guid: d534a61f64d6f6043849281ff13ee3aa,
+    type: 3}
   playerScript: {fileID: 0}
   agent: {fileID: 2208928984470582164}
   isGround:
